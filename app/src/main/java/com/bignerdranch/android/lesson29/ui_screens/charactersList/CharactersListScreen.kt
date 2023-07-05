@@ -15,8 +15,9 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import coil.compose.AsyncImage
 import com.bignerdranch.android.lesson29.model.Character
 import com.bignerdranch.android.lesson29.navigation.CHARACTER_SCREEN
 
@@ -24,18 +25,21 @@ import com.bignerdranch.android.lesson29.navigation.CHARACTER_SCREEN
 @Composable
 fun CharacterListScreen(
     navController: NavHostController,
-    viewModel: CharacterListViewModel = viewModel()
+    viewModel: CharacterListViewModel = hiltViewModel()
 ) {
     val list = viewModel.listCharacters.observeAsState()
     viewModel.getList()
+    val listH = list
     val context: Context = LocalContext.current
 
     LazyVerticalGrid(
         columns = GridCells.Fixed(2)
+
     ) {
-        items(list.value ?: arrayListOf()) {
+        items(listH.value ?: arrayListOf()) {
             CharacterItem(it) {
-                navController.navigate("$CHARACTER_SCREEN/${it.id}")
+                val result = it.id
+                navController.navigate("$CHARACTER_SCREEN/${result}")
                 Toast.makeText(context, it.name, Toast.LENGTH_LONG).show()
             }
         }
@@ -53,6 +57,10 @@ fun CharacterItem(
                 true, true, null, onClick
             )
     ) {
+        AsyncImage(
+            model = character.imageUrl,
+            contentDescription = null
+        )
         Text(
             text = character.name
         )

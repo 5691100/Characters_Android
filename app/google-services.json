@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "24279865061",
+    "project_id": "disney-87a09",
+    "storage_bucket": "disney-87a09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24279865061:android:81d2aa1cd2b82437d2e60c",
+        "android_client_info": {
+          "package_name": "com.bignerdranch.android.lesson29"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24279865061-o3p5a4gs3kp1jgkeh0ioaku4mpdvl4f7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJkHOS3T5Y0cFenMXz7v1pqJhGNtMrAO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24279865061-o3p5a4gs3kp1jgkeh0ioaku4mpdvl4f7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

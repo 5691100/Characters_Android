@@ -16,14 +16,15 @@ class CharacterListViewModel @Inject constructor(
     private val characterListRepository: CharacterListRepository
 ) : ViewModel() {
 
+
+
     val listCharacters = MutableLiveData<ArrayList<Character>>()
 
     fun getList() {
         viewModelScope.launch(Dispatchers.IO) {
             val response = characterListRepository.getCharacterList()
             if (response.isSuccessful) {
-                listCharacters.postValue(response.body()?.toCharacterList())
-
+                listCharacters.postValue(response.body()?.data?.toCharacterList())
             }
         }
     }

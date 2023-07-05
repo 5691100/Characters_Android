@@ -31,7 +31,7 @@ fun NavGraph(
         {
             CharacterScreen(
                 navController,
-                it.arguments?.getString("characterId", "") ?: "")
+                it.arguments?.getString("characterId", "5") ?: "5")
         }
     }
 }
